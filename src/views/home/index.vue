@@ -284,6 +284,11 @@
     created(){
       this.initOrderCountDate();
       this.getData();
+      this.$notify({
+        title: '提示',
+        message: '这是一条不会自动关闭的消息',
+        duration: 3000
+      });
     },
     methods:{
       handleDateChange(){
