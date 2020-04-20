@@ -6,21 +6,21 @@
           <div class="total-frame">
             <img :src="img_home_order" class="total-icon">
             <div class="total-title">今日订单总数</div>
-            <div class="total-value">200</div>
+            <div class="total-value">{{contentDate.salesStatistics.todayOrderTotal}}</div>
           </div>
         </el-col>
         <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_today_amount" class="total-icon">
             <div class="total-title">今日销售总额</div>
-            <div class="total-value">￥5000.00</div>
+            <div class="total-value">￥{{contentDate.salesStatistics.todaySalesAmount}}</div>
           </div>
         </el-col>
         <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_yesterday_amount" class="total-icon">
             <div class="total-title">昨日销售总额</div>
-            <div class="total-value">￥5000.00</div>
+            <div class="total-value">￥{{contentDate.salesStatistics.yesterdaySalesAmount}}</div>
           </div>
         </el-col>
         <el-col :span="6">
@@ -28,7 +28,7 @@
             <svg-icon icon-class="total-week" class="total-icon">
             </svg-icon>
             <div class="total-title">近7天销售总额</div>
-            <div class="total-value">￥50000.00</div>
+            <div class="total-value">￥{{contentDate.salesStatistics.weekSalesAmount}}</div>
           </div>
         </el-col>
       </el-row>
@@ -41,19 +41,21 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待付款订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right"
+                    class="color-danger">({{contentDate.waitHandleTransaction.waitPayOrderTotal}})</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">已完成订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right"
+                    class="color-danger">({{contentDate.waitHandleTransaction.completeOrderTotal}})</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待确认收货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">({{contentDate.waitHandleTransaction.waitConfirmOrderTotal}})</span>
             </div>
           </el-col>
         </el-row>
@@ -61,19 +63,19 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待发货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">({{contentDate.waitHandleTransaction.waitDeliverOrderTotal}})</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">新缺货登记</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">({{contentDate.waitHandleTransaction.wantBook}})</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待处理退款申请</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">({{contentDate.waitHandleTransaction.waitHandelReturnMoneyOrderTotal}})</span>
             </div>
           </el-col>
         </el-row>
@@ -81,19 +83,20 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">已发货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right"
+                    class="color-danger">({{contentDate.waitHandleTransaction.waitSignOrderTotal}})</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待处理退货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">({{contentDate.waitHandleTransaction.waitHandleReturnOrderTotal}})</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">广告位即将到期</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">({{contentDate.waitHandleTransaction.expireAdvertiseTotal}})</span>
             </div>
           </el-col>
         </el-row>
@@ -106,10 +109,14 @@
             <div class="layout-title">商品总览</div>
             <div style="padding: 40px">
               <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">400</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">50</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">500</el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.products.noPublishTotal}}
+                </el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.products.publishTotal}}
+                </el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.products.lowStockTotal}}
+                </el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.products.allProductTotal}}
+                </el-col>
               </el-row>
               <el-row class="font-medium">
                 <el-col :span="6" class="overview-item-title">已下架</el-col>
@@ -125,10 +132,11 @@
             <div class="layout-title">用户总览</div>
             <div style="padding: 40px">
               <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">200</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">1000</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">5000</el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.users.todayAddTotal}}</el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.users.yesterdayAddTotal}}
+                </el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.users.monthAddTotal}}</el-col>
+                <el-col :span="6" class="color-danger overview-item-value">{{contentDate.users.allTotal}}</el-col>
               </el-row>
               <el-row class="font-medium">
                 <el-col :span="6" class="overview-item-title">今日新增</el-col>
@@ -144,7 +152,7 @@
     <div class="statistics-layout">
       <div class="layout-title">订单统计</div>
       <el-row>
-        <el-col :span="4">
+        <!--<el-col :span="4">
           <div style="padding: 20px">
             <div>
               <div style="color: #909399;font-size: 14px">本月订单总数</div>
@@ -179,8 +187,8 @@
               </div>
             </div>
           </div>
-        </el-col>
-        <el-col :span="20">
+        </el-col>-->
+        <el-col :span="24">
           <div style="padding: 10px;border-left:1px solid #DCDFE6">
             <el-date-picker
               style="float: right;z-index: 1"
@@ -215,26 +223,111 @@
   import img_home_order from '@/assets/images/home_order.png';
   import img_home_today_amount from '@/assets/images/home_today_amount.png';
   import img_home_yesterday_amount from '@/assets/images/home_yesterday_amount.png';
-  const DATA_FROM_BACKEND = {
-    columns: ['date', 'orderCount','orderAmount'],
-    rows: [
-      {date: '2018-11-01', orderCount: 10, orderAmount: 1093},
-      {date: '2018-11-02', orderCount: 20, orderAmount: 2230},
-      {date: '2018-11-03', orderCount: 33, orderAmount: 3623},
-      {date: '2018-11-04', orderCount: 50, orderAmount: 6423},
-      {date: '2018-11-05', orderCount: 80, orderAmount: 8492},
-      {date: '2018-11-06', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-07', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-08', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-09', orderCount: 50, orderAmount: 5293},
-      {date: '2018-11-10', orderCount: 30, orderAmount: 3293},
-      {date: '2018-11-11', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-12', orderCount: 80, orderAmount: 8293},
-      {date: '2018-11-13', orderCount: 100, orderAmount: 10293},
-      {date: '2018-11-14', orderCount: 10, orderAmount: 1293},
-      {date: '2018-11-15', orderCount: 40, orderAmount: 4293}
-    ]
-  };
+  import {content} from '@/api/home'
+
+  const DEFAULT_CONTENT = {
+    "salesStatistics":
+      {
+        "todayOrderTotal":
+          1,
+        "todaySalesAmount":
+          0,
+        "yesterdaySalesAmount":
+          0,
+        "weekSalesAmount":
+          0
+      }
+    ,
+    "waitHandleTransaction":
+      {
+        "waitPayOrderTotal":
+          1,
+        "waitDeliverOrderTotal":
+          1,
+        "waitSignOrderTotal":
+          1,
+        "completeOrderTotal":
+          1,
+        "wantBook":
+          0,
+        "waitHandleReturnOrderTotal":
+          0,
+        "waitConfirmOrderTotal":
+          0,
+        "waitHandelReturnMoneyOrderTotal":
+          0,
+        "expireAdvertiseTotal":
+          0
+      }
+    ,
+    "products":
+      {
+        "publishTotal":
+          10,
+        "noPublishTotal":
+          0,
+        "lowStockTotal":
+          0,
+        "allProductTotal":
+          10
+      }
+    ,
+    "users":
+      {
+        "todayAddTotal":
+          0,
+        "yesterdayAddTotal":
+          0,
+        "monthAddTotal":
+          1,
+        "allTotal":
+          2
+      }
+    ,
+    "orderStatisticList":
+      [
+        {
+          "date": "2020-04-13",
+          "orderCount": 0,
+          "orderAmount": 0
+        },
+        {
+          "date": "2020-04-14",
+          "orderCount": 0,
+          "orderAmount": 0
+        },
+        {
+          "date": "2020-04-15",
+          "orderCount": 0,
+          "orderAmount": 0
+        },
+        {
+          "date": "2020-04-16",
+          "orderCount": 0,
+          "orderAmount": 0
+        },
+        {
+          "date": "2020-04-17",
+          "orderCount": 0,
+          "orderAmount": 0
+        },
+        {
+          "date": "2020-04-18",
+          "orderCount": 0,
+          "orderAmount": 0
+        },
+        {
+          "date": "2020-04-19",
+          "orderCount": 0,
+          "orderAmount": 0
+        },
+        {
+          "date": "2020-04-20",
+          "orderCount": 0,
+          "orderAmount": 0
+        }
+      ]
+  }
   export default {
     name: 'home',
     data() {
@@ -245,9 +338,9 @@
             onClick(picker) {
               const end = new Date();
               let start = new Date();
-              start.setFullYear(2018);
-              start.setMonth(10);
-              start.setDate(1);
+              start.setFullYear(new Date().getFullYear());
+              start.setMonth(new Date().getMonth());
+              start.setDate(new Date().getDate() - 7);
               end.setTime(start.getTime() + 3600 * 1000 * 24 * 7);
               picker.$emit('pick', [start, end]);
             }
@@ -256,9 +349,9 @@
             onClick(picker) {
               const end = new Date();
               let start = new Date();
-              start.setFullYear(2018);
-              start.setMonth(10);
-              start.setDate(1);
+              start.setFullYear(new Date().getFullYear());
+              start.setMonth(new Date().getMonth());
+              start.setDate(new Date().getDate() - 30);
               end.setTime(start.getTime() + 3600 * 1000 * 24 * 30);
               picker.$emit('pick', [start, end]);
             }
@@ -267,9 +360,10 @@
         orderCountDate: '',
         chartSettings: {
           xAxisType: 'time',
-          area:true,
-          axisSite: { right: ['orderAmount']},
-        labelMap: {'orderCount': '订单数量', 'orderAmount': '订单金额'}},
+          area: true,
+          axisSite: {right: ['orderAmount']},
+          labelMap: {'orderCount': '订单数量', 'orderAmount': '订单金额'}
+        },
         chartData: {
           columns: [],
           rows: []
@@ -278,50 +372,49 @@
         dataEmpty: false,
         img_home_order,
         img_home_today_amount,
-        img_home_yesterday_amount
+        img_home_yesterday_amount,
+        contentDate: Object.assign({}, DEFAULT_CONTENT)
       }
     },
-    created(){
+    created() {
       this.initOrderCountDate();
       this.getData();
-      this.$notify({
-        title: '提示',
-        message: '这是一条不会自动关闭的消息',
-        duration: 3000
-      });
     },
-    methods:{
-      handleDateChange(){
+    methods: {
+      handleDateChange() {
         this.getData();
       },
-      initOrderCountDate(){
+      initOrderCountDate() {
         let start = new Date();
-        start.setFullYear(2018);
-        start.setMonth(10);
-        start.setDate(1);
+        start.setFullYear(new Date().getFullYear());
+        start.setMonth(new Date().getMonth());
+        start.setDate(new Date().getDate() - 7);
         const end = new Date();
         end.setTime(start.getTime() + 1000 * 60 * 60 * 24 * 7);
-        this.orderCountDate=[start,end];
+        this.orderCountDate = [start, end];
       },
-      getData(){
+      getData() {
         setTimeout(() => {
-          this.chartData = {
-            columns: ['date', 'orderCount','orderAmount'],
-            rows: []
-          };
-          for(let i=0;i<DATA_FROM_BACKEND.rows.length;i++){
-            let item=DATA_FROM_BACKEND.rows[i];
-            let currDate=str2Date(item.date);
-            let start=this.orderCountDate[0];
-            let end=this.orderCountDate[1];
-            if(currDate.getTime()>=start.getTime()&&currDate.getTime()<=end.getTime()){
-              this.chartData.rows.push(item);
+          content().then((response) => {
+            this.contentDate = response.data
+            this.chartData = {
+              columns: ['date', 'orderCount', 'orderAmount'],
+              rows: []
+            };
+            for (let i = 0; i < this.contentDate.orderStatisticList.length; i++) {
+              let item = this.contentDate.orderStatisticList[i]
+              let currDate = str2Date(item.date)
+              let start = this.orderCountDate[0]
+              let end = this.orderCountDate[1]
+              if (currDate.getTime() >= start.getTime() && currDate.getTime() <= end.getTime()) {
+                this.chartData.rows.push(item)
+              }
             }
-          }
-          this.dataEmpty = false;
-          this.loading = false
+            this.dataEmpty = false
+            this.loading = false
+          })
         }, 1000)
-      }
+      },
     }
   }
 </script>
@@ -411,6 +504,7 @@
     margin-top: 20px;
     border: 1px solid #DCDFE6;
   }
+
   .mine-layout {
     position: absolute;
     right: 140px;
@@ -418,7 +512,8 @@
     width: 250px;
     height: 235px;
   }
-  .address-content{
+
+  .address-content {
     padding: 20px;
     font-size: 18px
   }

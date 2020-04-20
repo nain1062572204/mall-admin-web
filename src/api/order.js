@@ -2,7 +2,7 @@ import request from '@/utils/request'
 export function fetchList(params) {
   return request({
     url:'/order/list',
-    method:'get',
+    method:'GET',
     params:params
   })
 }
@@ -10,7 +10,7 @@ export function fetchList(params) {
 export function closeOrder(params) {
   return request({
     url:'/order/update/close',
-    method:'post',
+    method:'PUT',
     params:params
   })
 }
@@ -18,7 +18,7 @@ export function closeOrder(params) {
 export function deleteOrder(params) {
   return request({
     url:'/order/delete',
-    method:'post',
+    method:'DELETE',
     params:params
   })
 }
@@ -26,7 +26,7 @@ export function deleteOrder(params) {
 export function deliveryOrder(data) {
   return request({
     url:'/order/update/delivery',
-    method:'post',
+    method:'PUT',
     data:data
   });
 }
@@ -34,30 +34,23 @@ export function deliveryOrder(data) {
 export function getOrderDetail(id) {
   return request({
     url:'/order/'+id,
-    method:'get'
+    method:'GET'
   });
 }
 
 export function updateReceiverInfo(data) {
   return request({
     url:'/order/update/receiverInfo',
-    method:'post',
+    method:'PUT',
     data:data
   });
 }
 
-export function updateMoneyInfo(data) {
-  return request({
-    url:'/order/update/moneyInfo',
-    method:'post',
-    data:data
-  });
-}
 
 export function updateOrderNote(params) {
   return request({
     url:'/order/update/note',
-    method:'post',
+    method:'PUT',
     params:params
   })
 }

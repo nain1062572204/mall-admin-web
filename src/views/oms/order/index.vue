@@ -79,7 +79,7 @@
         <el-table-column label="编号" width="80" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="订单编号" width="180" align="center">
+        <el-table-column label="订单编号" width="250" align="center">
           <template slot-scope="scope">{{scope.row.orderSn}}</template>
         </el-table-column>
         <el-table-column label="提交时间" width="180" align="center">
